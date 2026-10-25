@@ -94,9 +94,9 @@
 \footnotesize
 \setstretch{0.98}
 \captionsetup{skip=3pt,font=footnotesize}
-The Hubble Space Telescope is a Ritchey--Chr\'etien. I put the object at infinity and set the aperture to an entrance pupil diameter of \(2400\,\mathrm{mm}\). The stop is a dummy surface in contact with the primary. The primary mirror has radius \(-11040\,\mathrm{mm}\) and conic \(-1.002\), and the thickness after it is \(-4906.072\,\mathrm{mm}\), so the secondary lies that far in front of the primary. The secondary has radius \(-1358\,\mathrm{mm}\) and conic \(-1.496\). Both conics are below \(-1\), so both mirrors are hyperboloids. A marginal-ray solve on the secondary thickness places the image \(6406.090\,\mathrm{mm}\) after the secondary, which is \(1500.018\,\mathrm{mm}\) behind the primary. The clear semi-diameter at the secondary is \(133.628\,\mathrm{mm}\).
+The Hubble Space Telescope is a Ritchey--Chr\'etien. Figure~\ref{fig:hubble-lens} shows the lens data. I put the object at infinity and set the aperture to an entrance pupil diameter of \(2400\,\mathrm{mm}\). The stop is a dummy surface in contact with the primary. The primary mirror has radius \(-11040\,\mathrm{mm}\) and conic \(-1.002\), and the thickness after it is \(-4906.072\,\mathrm{mm}\), so the secondary lies that far in front of the primary. The secondary has radius \(-1358\,\mathrm{mm}\) and conic \(-1.496\). Both conics are below \(-1\), so both mirrors are hyperboloids. A marginal-ray solve on the secondary thickness places the image \(6406.090\,\mathrm{mm}\) after the secondary, which is \(1500.018\,\mathrm{mm}\) behind the primary. The clear semi-diameter at the secondary is \(133.628\,\mathrm{mm}\).
 
-The layout is the Cassegrain path. Collimated rays strike the primary, reflect to the secondary, and come to a focus behind the primary. The scale bar is \(2\times 10^{3}\,\mathrm{mm}\).
+Figure~\ref{fig:hubble-layout} shows the Cassegrain path. Collimated rays strike the primary, reflect to the secondary, and come to a focus behind the primary. The scale bar is \(2\times 10^{3}\,\mathrm{mm}\).
 
 \begin{figure}[H]
   \centering
@@ -112,9 +112,7 @@ The layout is the Cassegrain path. Collimated rays strike the primary, reflect t
   \label{fig:hubble-layout}
 \end{figure}
 
-With spherical aberration and coma removed, the on-axis optical path difference is flat. At \(0.25^{\circ}\) both fans are strongly curved, and the plot scale is \(\pm 20\) waves. On a flat image surface the RMS wavefront error crosses the diffraction limit at about \(0.027^{\circ}\).
-
-The Seidel coefficients give a Petzval radius of \(-774.237\,\mathrm{mm}\).\footnote{The Petzval radius is the radius of the surface the image would lie on if astigmatism were absent. It comes only from the surface powers and the refractive indices. Putting that radius on the image surface means the detector is curved to match it. Astigmatism is still left.} I entered that value as the image-surface radius. The off-axis fans then fit on a scale of \(\pm 5\) waves, and the diffraction-limited field extends to about \(0.0573^{\circ}\). The on-axis fan stays flat. The curved surface takes out the Petzval defocus, and the field that remains sharp is set by the residual astigmatism.
+With spherical aberration and coma removed, Figure~\ref{fig:hubble-before-petzval} is the flat-image-surface case. The on-axis optical path difference is flat. At \(0.25^{\circ}\) both fans are strongly curved, and the plot scale is \(\pm 20\) waves. The RMS wavefront error crosses the diffraction limit at about \(0.027^{\circ}\).
 
 \begin{figure}[H]
   \centering
@@ -122,6 +120,8 @@ The Seidel coefficients give a Petzval radius of \(-774.237\,\mathrm{mm}\).\foot
   \caption{Flat image surface. On-axis OPD is flat; at \(0.25^{\circ}\) the scale is \(\pm 20\) waves. The RMS wavefront error leaves the diffraction limit near \(0.027^{\circ}\).}
   \label{fig:hubble-before-petzval}
 \end{figure}
+
+The Seidel coefficients give a Petzval radius of \(-774.237\,\mathrm{mm}\).\footnote{The Petzval radius is the radius of the surface the image would lie on if astigmatism were absent. It comes only from the surface powers and the refractive indices. Putting that radius on the image surface means the detector is curved to match it. Astigmatism is still left.} I entered that value as the image-surface radius. Figure~\ref{fig:hubble-after-petzval} is the updated pair of plots. The off-axis fans then fit on a scale of \(\pm 5\) waves, and the diffraction-limited field extends to about \(0.0573^{\circ}\). The on-axis fan stays flat. The curved surface takes out the Petzval defocus, and the field that remains sharp is set by the residual astigmatism.
 
 \begin{figure}[H]
   \centering
