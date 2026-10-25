@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in, headheight=24pt, headsep=14pt]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\graphicspath{{figures/}{HUBBLE-SCREENSHOTS/}{HUBBLE-SCREENSHOTS/1/}{./}}
+
+\definecolor{hwaccent}{HTML}{1F4788}
+\definecolor{hwmuted}{HTML}{555555}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=hwaccent,
+  urlcolor=hwaccent,
+  pdfauthor={Saruul Nasanjargal},
+  pdftitle={OPTI 517 Homework 4},
+}
+
+\sisetup{
+  table-format = 3.3,
+  table-number-alignment = center,
+  detect-weight = true,
+  detect-inline-weight = math,
+}
+
+\captionsetup{
+  font=small,
+  labelfont={bf,color=hwaccent},
+  skip=6pt,
+}
+\captionsetup[sub]{font=footnotesize, labelfont=bf}
+
+\titleformat{name=\section,numberless}[block]
+  {\large\bfseries\color{hwaccent}}
+  {}{0pt}{}
+  [\vspace{0.1em}\textcolor{hwaccent}{\rule{\linewidth}{0.6pt}}\vspace{0.1em}]
+
+\titleformat{name=\subsection,numberless}[block]
+  {\normalsize\bfseries\color{hwaccent}}
+  {}{0pt}{}
+  []
+
+\newcommand{\hwsetupheaders}{%
+  \fancyhf{}%
+  \fancyhead[L]{\small\textcolor{hwmuted}{OPTI 517 --- Lens Design}}%
+  \fancyhead[R]{\small\textcolor{hwmuted}{Homework \#4}}%
+  \fancyfoot[C]{\small\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\fancypagestyle{fancy}{\hwsetupheaders}
+\fancypagestyle{plain}{\hwsetupheaders}
+\pagestyle{fancy}
+
+\setstretch{1.08}
+
+\newcommand{\maketitleblock}{%
+  \begin{center}
+    {\LARGE\bfseries\color{hwaccent} OPTI 517 --- Homework \#4}\\[0.2em]
+    {\normalsize Saruul Nasanjargal}
+  \end{center}
+  \vspace{0.2em}
+}
+
+% Tall Zemax screenshots otherwise land alone and leave the rest of the page blank.
+\newcommand{\hwimg}[1]{%
+  \includegraphics[width=\linewidth,height=0.36\textheight,keepaspectratio]{#1}%
+}
+
+\begin{document}
+\pagestyle{fancy}
+\maketitleblock
+
+\section*{Hubble Space Telescope}
+
+\subsection*{Part 1}
+
+\begingroup
+\footnotesize
+\setstretch{0.98}
+\captionsetup{skip=3pt,font=footnotesize}
+The Hubble Space Telescope is a Ritchey--Chr\'etien. I put the object at infinity and set the aperture to an entrance pupil diameter of \(2400\,\mathrm{mm}\). The stop is a dummy surface in contact with the primary. The primary mirror has radius \(-11040\,\mathrm{mm}\) and conic \(-1.002\), and the thickness after it is \(-4906.072\,\mathrm{mm}\), so the secondary lies that far in front of the primary. The secondary has radius \(-1358\,\mathrm{mm}\) and conic \(-1.496\). Both conics are below \(-1\), so both mirrors are hyperboloids. A marginal-ray solve on the secondary thickness places the image \(6406.090\,\mathrm{mm}\) after the secondary, which is \(1500.018\,\mathrm{mm}\) behind the primary. The clear semi-diameter at the secondary is \(133.628\,\mathrm{mm}\).
+
+The layout is the Cassegrain path. Collimated rays strike the primary, reflect to the secondary, and come to a focus behind the primary. The scale bar is \(2\times 10^{3}\,\mathrm{mm}\).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth,height=0.16\textheight,keepaspectratio]{Lens-Data.jpg}
+  \caption{Hubble lens data. Entrance pupil diameter \(2400\,\mathrm{mm}\), stop on the primary, and both mirrors hyperbolic.}
+  \label{fig:hubble-lens}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\linewidth,height=0.30\textheight,keepaspectratio]{Layout-Drawing.jpg}
+  \caption{Hubble layout. The secondary is to the left of the primary, and the image is behind the primary.}
+  \label{fig:hubble-layout}
+\end{figure}
+
+With spherical aberration and coma removed, the on-axis optical path difference is flat. At \(0.25^{\circ}\) both fans are strongly curved, and the plot scale is \(\pm 20\) waves. On a flat image surface the RMS wavefront error crosses the diffraction limit at about \(0.027^{\circ}\).
+
+The Seidel coefficients give a Petzval radius of \(-774.237\,\mathrm{mm}\).\footnote{The Petzval radius is the radius of the surface the image would lie on if astigmatism were absent. It comes only from the surface powers and the refractive indices. Putting that radius on the image surface means the detector is curved to match it. Astigmatism is still left.} I entered that value as the image-surface radius. The off-axis fans then fit on a scale of \(\pm 5\) waves, and the diffraction-limited field extends to about \(0.0573^{\circ}\). The on-axis fan stays flat. The curved surface takes out the Petzval defocus, and the field that remains sharp is set by the residual astigmatism.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth,height=0.40\textheight,keepaspectratio]{Before_Petzval.jpg}
+  \caption{Flat image surface. On-axis OPD is flat; at \(0.25^{\circ}\) the scale is \(\pm 20\) waves. The RMS wavefront error leaves the diffraction limit near \(0.027^{\circ}\).}
+  \label{fig:hubble-before-petzval}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth,height=0.40\textheight,keepaspectratio]{After_Petzval.jpg}
+  \caption{Image surface radius set to the Petzval radius, \(-774.237\,\mathrm{mm}\). The off-axis OPD scale is \(\pm 5\) waves, and the diffraction-limited field extends to about \(0.0573^{\circ}\).}
+  \label{fig:hubble-after-petzval}
+\end{figure}
+\endgroup
+
+% Part 2. Spherical aberration of the primary from its center of curvature, 633 nm.
+\subsection*{Part 2}
+
+% Part 3. Conic constants from the Ritchey--Chrétien formulas.
+\subsection*{Part 3}
+
+% Part 4. Dall null compensator.
+\subsection*{Part 4}
+
+% Part 5. Offner null corrector.
+\subsection*{Part 5}
+
+\section*{Schmidt, Maksutov, and Houghton Cameras}
+
+% Part 6. Spherical mirror, stop at the center of curvature.
+\subsection*{Part 6}
+
+% Part 7. Schmidt camera.
+\subsection*{Part 7}
+
+% Part 8. Maksutov camera.
+\subsection*{Part 8}
+
+% Part 9. Houghton camera.
+\subsection*{Part 9}
+
+\vspace{1.2em}
+\noindent I verify that this HW is all my work.
+
+\vspace{0.9em}
+\noindent Signature:\hspace{0.6em}\underline{\hspace{2.4in}}\hspace{1.2em}Saruul Nasanjargal
+
+\end{document}

@@ -1,0 +1,11 @@
+# Local reference material and screenshots
+HUBBLE-SCREENSHOTS/
+Given-Material/
+
+# macOS
+.DS_Store
+
+# LaTeX build products (regenerated from hw4.tex)
+*.aux
+*.log
+*.out
